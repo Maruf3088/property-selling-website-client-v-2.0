@@ -120,19 +120,22 @@ const Contact = () => {
   const [openFaq, setOpenFaq] = useState(null);
 
   return (
-    <div className="bg-[#050505] min-h-screen relative">
+    <div className="bg-[#050505] min-h-screen relative py-16">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-600/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
+      <section className="relative py-12 sm:py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-r from-orange-600/10 via-transparent to-orange-600/5 pointer-events-none" />
-        <div className="max-w-6xl mx-auto px-4 relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-            Get in <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-orange-600">Touch</span>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white">
+            Get in{" "}
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-orange-600">
+              Touch
+            </span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl">
             Have questions about a property? Our expert agents are here to help
             you find your perfect home. Reach out to us today!
           </p>
@@ -140,8 +143,8 @@ const Contact = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="max-w-6xl mx-auto px-4 py-12 relative z-20">
-        <div className="grid md:grid-cols-3 gap-6">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {[
             {
               icon: FaPhone,
@@ -167,16 +170,17 @@ const Contact = () => {
           ].map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div
-                key={idx}
-                className="group relative"
-              >
-                <div className={`absolute -inset-0.5 bg-linear-to-r ${item.color} rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500`}></div>
+              <div key={idx} className="group relative">
+                <div
+                  className={`absolute -inset-0.5 bg-linear-to-r ${item.color} rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500`}
+                ></div>
                 <div className="relative bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-8 transition-all hover:border-white/20">
                   <div className={`text-4xl mb-4 ${item.iconColor}`}>
                     <Icon />
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-white">{item.title}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-white">
+                    {item.title}
+                  </h3>
                   <p className="text-gray-400">{item.info}</p>
                 </div>
               </div>
@@ -186,14 +190,14 @@ const Contact = () => {
       </section>
 
       {/* Main Contact Section */}
-      <section className="max-w-6xl mx-auto px-4 py-16 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Contact Form */}
           <div>
-            <h2 className="text-4xl font-bold text-white mb-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
               Send us a Message
             </h2>
-            <p className="text-gray-400 text-lg mb-8">
+            <p className="text-gray-400 text-sm sm:text-base md:text-lg mb-6 sm:mb-8">
               Fill out the form below and we'll get back to you as soon as
               possible.
             </p>
@@ -209,15 +213,15 @@ const Contact = () => {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <input
                     type="text"
                     name="fullName"
                     placeholder="Full Name"
                     value={formData.fullName}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-white/5 border border-white/10 rounded-lg sm:rounded-xl text-white text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition"
                     required
                   />
                   <input
@@ -226,25 +230,25 @@ const Contact = () => {
                     placeholder="Email Address"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-white/5 border border-white/10 rounded-lg sm:rounded-xl text-white text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition"
                     required
                   />
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <input
                     type="tel"
                     name="phone"
                     placeholder="Phone Number"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-white/5 border border-white/10 rounded-lg sm:rounded-xl text-white text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition"
                   />
                   <select
                     name="propertyType"
                     value={formData.propertyType}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-orange-500/50 transition"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-white/5 border border-white/10 rounded-lg sm:rounded-xl text-white text-sm sm:text-base focus:outline-none focus:border-orange-500/50 transition"
                   >
                     <option value="">Select Property Type</option>
                     <option value="residential">Residential</option>
@@ -260,13 +264,13 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows="6"
-                  className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition resize-none"
+                  className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-white/5 border border-white/10 rounded-lg sm:rounded-xl text-white text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition resize-none"
                   required
                 ></textarea>
 
                 <button
                   type="submit"
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-full transition flex items-center justify-center gap-2 text-lg shadow-lg shadow-orange-500/20"
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 sm:py-4 rounded-lg sm:rounded-full transition flex items-center justify-center gap-2 text-sm sm:text-base shadow-lg shadow-orange-500/20"
                 >
                   Send Message <FaPaperPlane />
                 </button>
@@ -286,7 +290,9 @@ const Contact = () => {
               <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
             </div>
             <div className="absolute -bottom-6 -right-6 bg-white/5 border border-white/10 backdrop-blur-xl text-white p-6 rounded-2xl shadow-2xl max-w-xs">
-              <p className="font-bold text-lg mb-2 text-orange-400">Quick Tip</p>
+              <p className="font-bold text-lg mb-2 text-orange-400">
+                Quick Tip
+              </p>
               <p className="text-sm text-gray-300">
                 Response time within 24 hours guaranteed for all inquiries!
               </p>
@@ -296,21 +302,18 @@ const Contact = () => {
       </section>
 
       {/* Office Locations */}
-      <section className="py-16 relative z-10">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-white mb-4 text-center">
+      <section className="py-8 sm:py-16 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 text-center">
             Visit Our Offices
           </h2>
-          <p className="text-gray-400 text-lg text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-400 text-sm sm:text-base md:text-lg text-center mb-8 sm:mb-12 max-w-2xl mx-auto">
             Stop by any of our locations to speak with our agents in person.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {officeLocations.map((office) => (
-              <div
-                key={office.id}
-                className="group relative"
-              >
+              <div key={office.id} className="group relative">
                 <div className="absolute -inset-0.5 bg-linear-to-r from-orange-600 to-orange-400 rounded-3xl blur opacity-0 group-hover:opacity-20 transition duration-500"></div>
                 <div className="relative bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl overflow-hidden transition-all">
                   <div className="relative overflow-hidden h-48">
@@ -357,11 +360,11 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16 relative z-10">
-        <h2 className="text-4xl font-bold text-white mb-4 text-center">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 relative z-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 text-center">
           Frequently Asked Questions
         </h2>
-        <p className="text-gray-400 text-lg text-center mb-12">
+        <p className="text-gray-400 text-sm sm:text-base md:text-lg text-center mb-8 sm:mb-12">
           Find answers to common questions about our services.
         </p>
 
@@ -369,7 +372,7 @@ const Contact = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`bg-white/5 border rounded-2xl overflow-hidden transition-all ${openFaq === index ? 'border-orange-500/50' : 'border-white/10 hover:border-white/20'}`}
+              className={`bg-white/5 border rounded-2xl overflow-hidden transition-all ${openFaq === index ? "border-orange-500/50" : "border-white/10 hover:border-white/20"}`}
             >
               <button
                 onClick={() => setOpenFaq(openFaq === index ? null : index)}
@@ -401,18 +404,20 @@ const Contact = () => {
             <div className="grid md:grid-cols-2 gap-12 relative z-10">
               {/* Newsletter */}
               <div>
-                <h3 className="text-2xl font-bold mb-4 text-white">Stay Updated</h3>
+                <h3 className="text-2xl font-bold mb-4 text-white">
+                  Stay Updated
+                </h3>
                 <p className="text-gray-400 mb-6">
                   Subscribe to get the latest real estate updates and property
                   listings.
                 </p>
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row gap-3">
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="flex-1 px-6 py-3 rounded-full bg-black/30 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50"
+                    className="flex-1 px-4 sm:px-6 py-3 rounded-full bg-black/30 border border-white/10 text-white text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50"
                   />
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-bold transition shadow-lg shadow-orange-500/20">
+                  <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 rounded-full font-bold text-sm sm:text-base transition shadow-lg shadow-orange-500/20 whitespace-nowrap">
                     Subscribe
                   </button>
                 </div>
@@ -420,7 +425,9 @@ const Contact = () => {
 
               {/* Social Media */}
               <div>
-                <h3 className="text-2xl font-bold mb-4 text-white">Follow Us</h3>
+                <h3 className="text-2xl font-bold mb-4 text-white">
+                  Follow Us
+                </h3>
                 <p className="text-gray-400 mb-6">
                   Connect with us on social media for daily property updates and
                   tips.
@@ -451,15 +458,15 @@ const Contact = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="max-w-6xl mx-auto px-4 py-16 text-center relative z-10">
-        <h2 className="text-4xl font-bold text-white mb-4">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-16 text-center relative z-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
           Ready to Find Your Dream Home?
         </h2>
-        <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+        <p className="text-gray-400 text-sm sm:text-base md:text-lg mb-8 max-w-2xl mx-auto">
           Our expert agents are ready to help you navigate the real estate
           market and find the perfect property.
         </p>
-        <button className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg transition shadow-lg shadow-orange-500/20">
+        <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg transition shadow-lg shadow-orange-500/20">
           Browse Properties Now
         </button>
       </section>
