@@ -1,0 +1,181 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+html,
+body {
+    background-color: #050505;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Force dark mode for form controls (iOS-style dropdowns) */
+select,
+input {
+    color-scheme: dark;
+}
+
+select option {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+/* ============ Dark DaisyUI Overrides ============ */
+
+/* Tables */
+.table {
+    --tw-bg-opacity: 1;
+    background-color: transparent;
+}
+
+.table thead tr,
+.table thead th,
+.bg-base-200 {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    color: #9ca3af !important;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.table tbody tr {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.table-zebra tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+.table td,
+.table th {
+    color: #d1d5db;
+}
+
+/* Badges */
+.badge {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.badge-outline {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #9ca3af;
+}
+
+/* Inputs & Selects */
+.input,
+.select,
+.textarea,
+.file-input {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: #6b7280 !important;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+    border-color: rgba(249, 115, 22, 0.5) !important;
+    outline: none;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 9999px;
+}
+
+.join .btn {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #9ca3af;
+}
+
+.join .btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.join .btn-active {
+    background-color: #f97316 !important;
+    color: #ffffff !important;
+    border-color: #f97316 !important;
+}
+
+/* Modal */
+.modal-box {
+    background-color: #0f0f0f !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    max-width: 32rem !important;
+    max-height: 85vh !important;
+    overflow-y: auto;
+}
+
+/* Checkbox */
+.checkbox {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.checkbox:checked {
+    background-color: #f97316;
+    border-color: #f97316;
+}
+
+/* Section Cards in AddProperty */
+section.p-4.border {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+section h3.text-orange-500 {
+    color: #fb923c !important;
+}
+
+/* ============ SweetAlert2 iOS Liquid Glass ============ */
+.swal-glass-popup {
+    border-radius: 24px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+}
+
+.swal-glass-title {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 1.25rem !important;
+}
+
+.swal-glass-text {
+    color: #9ca3af !important;
+    font-size: 0.875rem !important;
+}
+
+.swal-glass-button {
+    border-radius: 9999px !important;
+    padding: 0.75rem 2rem !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+
+.swal-glass-button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3) !important;
+}
+
+/* SweetAlert2 Icon Styling */
+.swal2-icon {
+    margin: 1.5rem auto !important;
+}
+
+.swal2-popup {
+    padding: 2rem !important;
+}
