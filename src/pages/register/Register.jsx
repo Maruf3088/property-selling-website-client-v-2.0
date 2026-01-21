@@ -71,6 +71,7 @@ const Register = () => {
 
       await logout();
 
+      // eslint-disable-next-line no-unused-vars
       const { password, confirmPassword, privacy, username, ...userData } =
         finalData;
       userData.createdAt = new Date().toISOString();
@@ -344,7 +345,7 @@ const Register = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="btn bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white border-none w-full h-10 sm:h-11 min-h-0 rounded-lg text-sm sm:text-base font-bold shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all mt-2"
+              className="btn bg-linear-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white border-none w-full h-10 sm:h-11 min-h-0 rounded-lg text-sm sm:text-base font-bold shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all mt-2"
               disabled={loading}
             >
               {loading ? (
