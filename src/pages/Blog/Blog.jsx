@@ -155,13 +155,13 @@ const Blog = () => {
   });
 
   return (
-    <div className="bg-[#050505] min-h-screen relative">
+    <div className="bg-[#050505] min-h-screen relative overflow-x-hidden">
       {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-600/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="hidden sm:block absolute top-0 right-0 w-[600px] h-[600px] bg-orange-600/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="hidden sm:block absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Hero Section */}
-      <section className="relative py-12 sm:py-20 md:py-28 overflow-hidden">
+      <section className="relative py-12 sm:py-20 md:py-28 overflow-hidden overflow-x-hidden">
         <div className="absolute inset-0 bg-linear-to-r from-orange-600/20 via-transparent to-orange-600/10 pointer-events-none" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white">
@@ -194,7 +194,7 @@ const Blog = () => {
 
       {/* Featured Post */}
       {filteredPosts.length > 0 && (
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-10">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-10 overflow-x-hidden">
           <div className="relative group">
             <div className="absolute -inset-0.5 sm:-inset-1 bg-linear-to-r from-orange-600 to-orange-400 rounded-2xl sm:rounded-3xl blur opacity-20"></div>
             <div className="relative bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
@@ -263,7 +263,7 @@ const Blog = () => {
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-10">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-10 overflow-x-hidden">
         {filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredPosts.map((post, index) =>
@@ -338,7 +338,7 @@ const Blog = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="relative py-12 sm:py-20 mt-8 sm:mt-12 z-10">
+      <section className="relative py-12 sm:py-20 mt-8 sm:mt-12 z-10 overflow-x-hidden">
         <div className="absolute inset-0 bg-linear-to-r from-orange-600/10 via-transparent to-orange-600/10 pointer-events-none"></div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-center relative overflow-hidden">
@@ -350,13 +350,13 @@ const Blog = () => {
               Get the latest real estate insights and tips delivered to your
               inbox weekly.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto relative z-10">
+            <div className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto relative z-10 w-full">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 sm:px-6 py-3 rounded-lg sm:rounded-xl bg-black/30 border border-white/10 text-white text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50"
+                className="flex-1 min-w-0 px-4 sm:px-6 py-3 rounded-lg sm:rounded-xl bg-black/30 border border-white/10 text-white text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50"
               />
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base transition-all shadow-lg shadow-orange-500/20 whitespace-nowrap">
+              <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base transition-all shadow-lg shadow-orange-500/20 whitespace-nowrap flex-shrink-0">
                 Subscribe
               </button>
             </div>
@@ -365,36 +365,38 @@ const Blog = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-8 sm:py-16 relative z-10">
+      <section className="py-8 sm:py-16 relative z-10 overflow-x-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 text-center">
-            <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-lg sm:rounded-2xl p-4 sm:p-6">
-              <h4 className="text-2xl sm:text-4xl font-bold text-orange-400 mb-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-8 text-center">
+            <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-lg sm:rounded-2xl p-3 sm:p-4 md:p-6">
+              <h4 className="text-xl sm:text-3xl md:text-4xl font-bold text-orange-400 mb-1 sm:mb-2">
                 {blogPosts.length}+
               </h4>
-              <p className="text-gray-400 text-xs sm:text-base\">
+              <p className="text-gray-400 text-xs sm:text-sm md:text-base">
                 Articles Published
               </p>
             </div>
-            <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-lg sm:rounded-2xl p-4 sm:p-6">
-              <h4 className="text-2xl sm:text-4xl font-bold text-orange-400 mb-2\">
+            <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-lg sm:rounded-2xl p-3 sm:p-4 md:p-6">
+              <h4 className="text-xl sm:text-3xl md:text-4xl font-bold text-orange-400 mb-1 sm:mb-2">
                 50K+
               </h4>
-              <p className="text-gray-400 text-xs sm:text-base\">
+              <p className="text-gray-400 text-xs sm:text-sm md:text-base">
                 Monthly Readers
               </p>
             </div>
-            <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-lg sm:rounded-2xl p-4 sm:p-6">
-              <h4 className="text-2xl sm:text-4xl font-bold text-orange-400 mb-2\">
+            <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-lg sm:rounded-2xl p-3 sm:p-4 md:p-6">
+              <h4 className="text-xl sm:text-3xl md:text-4xl font-bold text-orange-400 mb-1 sm:mb-2">
                 {categories.length - 1}+
               </h4>
-              <p className="text-gray-400 text-xs sm:text-base\">Categories</p>
+              <p className="text-gray-400 text-xs sm:text-sm md:text-base">
+                Categories
+              </p>
             </div>
-            <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-lg sm:rounded-2xl p-4 sm:p-6">
-              <h4 className="text-2xl sm:text-4xl font-bold text-orange-400 mb-2\">
+            <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-lg sm:rounded-2xl p-3 sm:p-4 md:p-6">
+              <h4 className="text-xl sm:text-3xl md:text-4xl font-bold text-orange-400 mb-1 sm:mb-2">
                 100%
               </h4>
-              <p className="text-gray-400 text-xs sm:text-base\">
+              <p className="text-gray-400 text-xs sm:text-sm md:text-base">
                 Expert Verified
               </p>
             </div>
@@ -403,14 +405,14 @@ const Blog = () => {
       </section>
 
       {/* Call to Action Section */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-16 text-center relative z-10">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4\">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-16 text-center relative z-10 overflow-x-hidden">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
           Ready to Find Your Dream Property?
         </h2>
-        <p className="text-gray-400 text-sm sm:text-base md:text-lg mb-8 max-w-xl mx-auto\">
+        <p className="text-gray-400 text-sm sm:text-base md:text-lg mb-8 max-w-xl mx-auto">
           Explore our properties or contact our expert agents today.
         </p>
-        <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base md:text-lg transition-all shadow-lg shadow-orange-500/20\">
+        <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base md:text-lg transition-all shadow-lg shadow-orange-500/20">
           Browse Properties
         </button>
       </section>

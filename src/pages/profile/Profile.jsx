@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import {
   Heart,
@@ -16,6 +16,10 @@ const Profile = () => {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
   //   const [isEditing, setIsEditing] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleLogout = async () => {
     Swal.fire({
@@ -93,11 +97,15 @@ const Profile = () => {
                     </h1>
                     <p className="text-orange-400 font-medium text-lg mt-1 flex items-center gap-2">
                       {profileData.role}
-                      <span className="px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-400 text-xs font-bold border border-orange-500/20 uppercase tracking-wider">Verified</span>
+                      <span className="px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-400 text-xs font-bold border border-orange-500/20 uppercase tracking-wider">
+                        Verified
+                      </span>
                     </p>
                     <p className="text-gray-400 mt-2 flex items-center gap-2 text-sm">
                       <span className="text-yellow-400 text-base">★</span>
-                      <span className="text-white font-bold">{profileData.rating}</span>
+                      <span className="text-white font-bold">
+                        {profileData.rating}
+                      </span>
                       <span>({profileData.reviews} reviews)</span>
                     </p>
                   </div>
@@ -115,10 +123,35 @@ const Profile = () => {
 
           {/* Quick Stats */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 px-4 sm:px-8 py-8 border-t border-white/5">
-            <StatCard value={profileData.properties} label="Properties Listed" color="text-blue-400" bg="bg-blue-500/5" border="border-blue-500/20" />
-            <StatCard value={profileData.reviews} label="Total Reviews" color="text-purple-400" bg="bg-purple-500/5" border="border-purple-500/20" />
-            <StatCard value={profileData.favorites} label="Favorites" color="text-pink-400" bg="bg-pink-500/5" border="border-pink-500/20" icon={<Heart size={18} />} />
-            <StatCard value={profileData.rating} label="Average Rating" color="text-green-400" bg="bg-green-500/5" border="border-green-500/20" />
+            <StatCard
+              value={profileData.properties}
+              label="Properties Listed"
+              color="text-blue-400"
+              bg="bg-blue-500/5"
+              border="border-blue-500/20"
+            />
+            <StatCard
+              value={profileData.reviews}
+              label="Total Reviews"
+              color="text-purple-400"
+              bg="bg-purple-500/5"
+              border="border-purple-500/20"
+            />
+            <StatCard
+              value={profileData.favorites}
+              label="Favorites"
+              color="text-pink-400"
+              bg="bg-pink-500/5"
+              border="border-pink-500/20"
+              icon={<Heart size={18} />}
+            />
+            <StatCard
+              value={profileData.rating}
+              label="Average Rating"
+              color="text-green-400"
+              bg="bg-green-500/5"
+              border="border-green-500/20"
+            />
           </div>
 
           {/* Content Sections */}
@@ -132,10 +165,34 @@ const Profile = () => {
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <ContactItem icon={<Mail size={20} />} label="Email" value={user?.email || "user@example.com"} color="text-blue-400" bg="bg-blue-500/10" />
-                  <ContactItem icon={<Phone size={20} />} label="Phone" value={profileData.phone} color="text-green-400" bg="bg-green-500/10" />
-                  <ContactItem icon={<MapPin size={20} />} label="Location" value={profileData.location} color="text-purple-400" bg="bg-purple-500/10" />
-                  <ContactItem icon={<Calendar size={20} />} label="Member Since" value={profileData.joinDate} color="text-orange-400" bg="bg-orange-500/10" />
+                  <ContactItem
+                    icon={<Mail size={20} />}
+                    label="Email"
+                    value={user?.email || "user@example.com"}
+                    color="text-blue-400"
+                    bg="bg-blue-500/10"
+                  />
+                  <ContactItem
+                    icon={<Phone size={20} />}
+                    label="Phone"
+                    value={profileData.phone}
+                    color="text-green-400"
+                    bg="bg-green-500/10"
+                  />
+                  <ContactItem
+                    icon={<MapPin size={20} />}
+                    label="Location"
+                    value={profileData.location}
+                    color="text-purple-400"
+                    bg="bg-purple-500/10"
+                  />
+                  <ContactItem
+                    icon={<Calendar size={20} />}
+                    label="Member Since"
+                    value={profileData.joinDate}
+                    color="text-orange-400"
+                    bg="bg-orange-500/10"
+                  />
                 </div>
               </div>
 
@@ -191,8 +248,14 @@ const Profile = () => {
                 </h3>
                 <div className="space-y-4 text-sm">
                   <ActivityItem label="Last Login" value="Today at 10:30 AM" />
-                  <ActivityItem label="Profile Views" value="1,234 this month" />
-                  <ActivityItem label="Properties Viewed" value="156 this month" />
+                  <ActivityItem
+                    label="Profile Views"
+                    value="1,234 this month"
+                  />
+                  <ActivityItem
+                    label="Properties Viewed"
+                    value="156 this month"
+                  />
                 </div>
               </div>
             </div>
@@ -200,9 +263,28 @@ const Profile = () => {
 
           {/* Action Buttons */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 px-4 sm:px-8 py-8 border-t border-white/5">
-            <ActionButton label="Edit Profile" bg="bg-white/5" hover="hover:bg-white/10" text="text-white" border="border-white/10" />
-            <ActionButton label="My Properties" bg="bg-orange-500" hover="hover:bg-orange-600" text="text-white" border="border-transparent" shadow="shadow-lg shadow-orange-500/20" />
-            <ActionButton label="Settings" bg="bg-white/5" hover="hover:bg-white/10" text="text-white" border="border-white/10" />
+            <ActionButton
+              label="Edit Profile"
+              bg="bg-white/5"
+              hover="hover:bg-white/10"
+              text="text-white"
+              border="border-white/10"
+            />
+            <ActionButton
+              label="My Properties"
+              bg="bg-orange-500"
+              hover="hover:bg-orange-600"
+              text="text-white"
+              border="border-transparent"
+              shadow="shadow-lg shadow-orange-500/20"
+            />
+            <ActionButton
+              label="Settings"
+              bg="bg-white/5"
+              hover="hover:bg-white/10"
+              text="text-white"
+              border="border-white/10"
+            />
           </div>
         </div>
       </div>
@@ -212,21 +294,31 @@ const Profile = () => {
 
 // Helper Components
 const StatCard = ({ value, label, color, bg, border, icon }) => (
-  <div className={`text-center p-4 ${bg} rounded-2xl border ${border} hover:scale-105 transition-transform duration-300`}>
-    <div className={`text-2xl font-bold ${color} flex items-center justify-center gap-1.5`}>
+  <div
+    className={`text-center p-4 ${bg} rounded-2xl border ${border} hover:scale-105 transition-transform duration-300`}
+  >
+    <div
+      className={`text-2xl font-bold ${color} flex items-center justify-center gap-1.5`}
+    >
       {icon} {value}
     </div>
-    <div className="text-xs font-medium text-gray-400 mt-1 uppercase tracking-wider">{label}</div>
+    <div className="text-xs font-medium text-gray-400 mt-1 uppercase tracking-wider">
+      {label}
+    </div>
   </div>
 );
 
 const ContactItem = ({ icon, label, value, color, bg }) => (
   <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-white/10 transition-colors group">
-    <div className={`w-10 h-10 ${bg} rounded-lg flex items-center justify-center ${color} group-hover:scale-110 transition-transform`}>
+    <div
+      className={`w-10 h-10 ${bg} rounded-lg flex items-center justify-center ${color} group-hover:scale-110 transition-transform`}
+    >
       {icon}
     </div>
     <div className="min-w-0">
-      <p className="text-xs text-gray-500 uppercase tracking-wide font-bold">{label}</p>
+      <p className="text-xs text-gray-500 uppercase tracking-wide font-bold">
+        {label}
+      </p>
       <p className="text-gray-200 font-medium truncate text-sm">{value}</p>
     </div>
   </div>
@@ -249,7 +341,9 @@ const ActivityItem = ({ label, value }) => (
 );
 
 const ActionButton = ({ label, bg, hover, text, border, shadow = "" }) => (
-  <button className={`${bg} ${hover} ${text} ${border} ${shadow} font-bold py-3.5 px-6 rounded-xl transition-all duration-300 border backdrop-blur-sm`}>
+  <button
+    className={`${bg} ${hover} ${text} ${border} ${shadow} font-bold py-3.5 px-6 rounded-xl transition-all duration-300 border backdrop-blur-sm`}
+  >
     {label}
   </button>
 );

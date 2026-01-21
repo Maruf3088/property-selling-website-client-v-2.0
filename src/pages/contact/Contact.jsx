@@ -120,13 +120,13 @@ const Contact = () => {
   const [openFaq, setOpenFaq] = useState(null);
 
   return (
-    <div className="bg-[#050505] min-h-screen relative py-16">
+    <div className="bg-[#050505] min-h-screen relative py-16 overflow-x-hidden">
       {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-600/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="hidden sm:block absolute top-0 right-0 w-[600px] h-[600px] bg-orange-600/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="hidden sm:block absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Hero Section */}
-      <section className="relative py-12 sm:py-20 md:py-32 overflow-hidden">
+      <section className="relative py-12 sm:py-20 md:py-32 overflow-hidden overflow-x-hidden">
         <div className="absolute inset-0 bg-linear-to-r from-orange-600/10 via-transparent to-orange-600/5 pointer-events-none" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white">
@@ -143,7 +143,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-20">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-20 overflow-x-hidden">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {[
             {
@@ -190,7 +190,7 @@ const Contact = () => {
       </section>
 
       {/* Main Contact Section */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-16 relative z-10">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-16 relative z-10 overflow-x-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Contact Form */}
           <div>
@@ -279,7 +279,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Image */}
-          <div className="relative group">
+          <div className="relative group hidden md:block">
             <div className="absolute -inset-1 bg-linear-to-r from-orange-600 to-orange-400 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
             <div className="relative overflow-hidden rounded-2xl">
               <img
@@ -289,7 +289,7 @@ const Contact = () => {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-white/5 border border-white/10 backdrop-blur-xl text-white p-6 rounded-2xl shadow-2xl max-w-xs">
+            <div className="absolute -bottom-6 -right-6 bg-white/5 border border-white/10 backdrop-blur-xl text-white p-6 rounded-2xl shadow-2xl max-w-xs hidden sm:block">
               <p className="font-bold text-lg mb-2 text-orange-400">
                 Quick Tip
               </p>
@@ -302,7 +302,7 @@ const Contact = () => {
       </section>
 
       {/* Office Locations */}
-      <section className="py-8 sm:py-16 relative z-10">
+      <section className="py-8 sm:py-16 relative z-10 overflow-x-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 text-center">
             Visit Our Offices
@@ -360,7 +360,7 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 relative z-10">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 relative z-10 overflow-x-hidden">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 text-center">
           Frequently Asked Questions
         </h2>
@@ -396,12 +396,12 @@ const Contact = () => {
       </section>
 
       {/* Social Media & Newsletter */}
-      <section className="py-16 relative z-10">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-10 relative overflow-hidden">
+      <section className="py-8 sm:py-16 relative z-10 overflow-x-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-orange-500/10 rounded-full blur-[80px] pointer-events-none"></div>
 
-            <div className="grid md:grid-cols-2 gap-12 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 relative z-10">
               {/* Newsletter */}
               <div>
                 <h3 className="text-2xl font-bold mb-4 text-white">
@@ -411,13 +411,13 @@ const Contact = () => {
                   Subscribe to get the latest real estate updates and property
                   listings.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col sm:flex-row gap-3 w-full">
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="flex-1 px-4 sm:px-6 py-3 rounded-full bg-black/30 border border-white/10 text-white text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50"
+                    className="flex-1 min-w-0 px-4 sm:px-6 py-3 rounded-full bg-black/30 border border-white/10 text-white text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50"
                   />
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 rounded-full font-bold text-sm sm:text-base transition shadow-lg shadow-orange-500/20 whitespace-nowrap">
+                  <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 rounded-full font-bold text-sm sm:text-base transition shadow-lg shadow-orange-500/20 whitespace-nowrap flex-shrink-0">
                     Subscribe
                   </button>
                 </div>
