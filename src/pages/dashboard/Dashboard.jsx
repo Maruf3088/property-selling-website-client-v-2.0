@@ -18,7 +18,6 @@ import {
   FaUsers,
   FaMoneyBillWave,
   FaArrowUp,
-  FaSpinner,
 } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
 import useFavourites from "../../hooks/useFavourites";
@@ -31,10 +30,10 @@ import useAdmin from "../../hooks/useAdmin";
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
 
-  // ✅ memoized role (prevents re-render issues)
+  // prevent rerenders from localStorage
   const role = useMemo(() => localStorage.getItem("role"), []);
 
-  // ================== DATA ==================
+  // ================= DATA =================
   const { data: favourites = [] } = useFavourites(user?.email);
   const { data: allProperties = [] } = useAllProperties();
   const { data: allUsers = [] } = useAllUser();
@@ -47,7 +46,7 @@ const Dashboard = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // ================== STABLE CHART DATA ==================
+  // ================= STABLE CHART DATA =================
   const chartData = useMemo(
     () => [
       { month: "Jan", value: 40 },
@@ -60,7 +59,7 @@ const Dashboard = () => {
     []
   );
 
-  // ================== STATS ==================
+  // ================= STATS =================
   const stats = useMemo(() => {
     if (role === "buyer") {
       return [
@@ -68,13 +67,11 @@ const Dashboard = () => {
           title: "Saved Properties",
           value: favourites.length,
           icon: <FaHeart />,
-          trend: "+3",
         },
         {
           title: "Appointments",
           value: buyerAppointments.length,
           icon: <FaCalendarAlt />,
-          trend: "+1",
         },
         {
           title: "Purchased",
@@ -82,7 +79,6 @@ const Dashboard = () => {
             (a) => a.status === "completed"
           ).length,
           icon: <FaHome />,
-          trend: "0",
         },
       ];
     }
@@ -93,7 +89,6 @@ const Dashboard = () => {
           title: "Total Properties",
           value: userProperties.length,
           icon: <FaBuilding />,
-          trend: "+2",
         },
         {
           title: "Active Listings",
@@ -101,13 +96,11 @@ const Dashboard = () => {
             (p) => p.status === "approved"
           ).length,
           icon: <FaCalendarAlt />,
-          trend: "+1",
         },
         {
           title: "Sold",
           value: userProperties.filter((p) => p.status === "sold").length,
           icon: <FaMoneyBillWave />,
-          trend: "+1",
         },
       ];
     }
@@ -117,19 +110,16 @@ const Dashboard = () => {
         title: "Total Users",
         value: allUsers.length,
         icon: <FaUsers />,
-        trend: "+10",
       },
       {
         title: "Total Properties",
         value: allProperties.length,
         icon: <FaBuilding />,
-        trend: "+5",
       },
       {
         title: "Active Agencies",
         value: new Set(allProperties.map((p) => p.agencyId)).size,
         icon: <FaMoneyBillWave />,
-        trend: "+2",
       },
     ];
   }, [
@@ -141,7 +131,7 @@ const Dashboard = () => {
     allProperties,
   ]);
 
-  // ================== TABLE DATA ==================
+  // ================= TABLE =================
   const tableData = useMemo(() => {
     if (role === "buyer") {
       return favourites.slice(0, 4).map((f, i) => ({
@@ -169,14 +159,14 @@ const Dashboard = () => {
     }));
   }, [role, favourites, userProperties, allProperties]);
 
-  // ================== UI ==================
+  // ================= UI =================
   const Card = ({ children }) => (
     <div className="bg-[#0f0f0f]/60 border border-white/5 rounded-3xl p-6 shadow-xl">
       {children}
     </div>
   );
 
-  // ================== RENDER ==================
+  // ================= RENDER =================
   return (
     <div className="space-y-8 p-6 min-h-screen text-gray-200">
       {/* HEADER */}
@@ -200,7 +190,7 @@ const Dashboard = () => {
             <div className="flex justify-between items-center mb-4">
               <div className="text-orange-400 text-xl">{item.icon}</div>
               <span className="text-green-400 text-xs flex items-center gap-1">
-                <FaArrowUp size={10} /> {item.trend}
+                <FaArrowUp size={10} /> +
               </span>
             </div>
             <h2 className="text-4xl font-bold text-white">{item.value}</h2>
@@ -211,31 +201,36 @@ const Dashboard = () => {
 
       {/* CHARTS */}
       <div className="grid lg:grid-cols-2 gap-6">
+        {/* LINE */}
         <Card>
           <h3 className="mb-4 font-bold text-lg">Property Growth</h3>
           <div style={{ width: "100%", height: 300 }}>
             <ResponsiveContainer>
-              <LineChart data={chartData}>
+              <LineChart data={chartData} key="line-chart">
                 <CartesianGrid stroke="#333" vertical={false} />
                 <XAxis dataKey="month" tick={{ fill: "#6b7280" }} />
                 <YAxis tick={{ fill: "#6b7280" }} />
                 <Tooltip />
                 <Line
+                  type="monotone"
                   dataKey="value"
                   stroke="#f97316"
                   strokeWidth={3}
-                  isAnimationActive={false}
+                  isAnimationActive
+                  animationDuration={1200}
+                  animationEasing="ease-out"
                 />
               </LineChart>
             </ResponsiveContainer>
           </div>
         </Card>
 
+        {/* BAR */}
         <Card>
           <h3 className="mb-4 font-bold text-lg">Monthly Activity</h3>
           <div style={{ width: "100%", height: 300 }}>
             <ResponsiveContainer>
-              <BarChart data={chartData}>
+              <BarChart data={chartData} key="bar-chart">
                 <CartesianGrid stroke="#333" vertical={false} />
                 <XAxis dataKey="month" tick={{ fill: "#6b7280" }} />
                 <YAxis tick={{ fill: "#6b7280" }} />
@@ -244,7 +239,10 @@ const Dashboard = () => {
                   dataKey="value"
                   fill="#fb923c"
                   barSize={30}
-                  isAnimationActive={false}
+                  radius={[6, 6, 6, 6]}
+                  isAnimationActive
+                  animationDuration={1200}
+                  animationEasing="ease-out"
                 />
               </BarChart>
             </ResponsiveContainer>
