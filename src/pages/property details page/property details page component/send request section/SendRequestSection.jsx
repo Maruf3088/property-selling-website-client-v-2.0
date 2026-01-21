@@ -96,8 +96,6 @@ const SendRequestSection = () => {
             }
         });
 
-        // 👉 send to backend here
-        // axios.post("/appointments", appointmentData)
 
         reset();
     };

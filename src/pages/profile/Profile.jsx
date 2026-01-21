@@ -67,7 +67,7 @@ const Profile = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         {/* Header Background */}
         <div className="relative h-48 bg-linear-to-r from-orange-900/40 to-black/40 rounded-t-3xl border border-white/5 border-b-0 overflow-hidden backdrop-blur-xl">
-          <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-transparent opacity-50"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-orange-500/20 to-transparent opacity-50"></div>
         </div>
 
         {/* Main Profile Card */}
@@ -226,7 +226,7 @@ const Profile = () => {
               </div>
 
               {/* Premium Badge */}
-              <div className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 rounded-2xl p-6 border border-amber-500/30 backdrop-blur-md relative overflow-hidden">
+              <div className="bg-linear-to-br from-amber-500/10 to-orange-500/10 rounded-2xl p-6 border border-amber-500/30 backdrop-blur-md relative overflow-hidden">
                 <div className="relative z-10">
                   <h3 className="text-lg font-bold text-amber-400 mb-2">
                     Premium Member
