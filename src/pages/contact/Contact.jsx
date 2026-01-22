@@ -331,19 +331,19 @@ const Contact = () => {
 
                     <div className="space-y-3 text-sm">
                       <div className="flex gap-3">
-                        <FaMapMarkerAlt className="text-orange-400 text-lg flex-shrink-0 mt-0.5" />
+                        <FaMapMarkerAlt className="text-orange-400 text-lg shrink-0 mt-0.5" />
                         <p className="text-gray-400">{office.address}</p>
                       </div>
                       <div className="flex gap-3">
-                        <FaPhone className="text-orange-400 text-lg flex-shrink-0" />
+                        <FaPhone className="text-orange-400 text-lg shrink-0" />
                         <p className="text-gray-400">{office.phone}</p>
                       </div>
                       <div className="flex gap-3">
-                        <FaEnvelope className="text-orange-400 text-lg flex-shrink-0" />
+                        <FaEnvelope className="text-orange-400 text-lg shrink-0" />
                         <p className="text-gray-400">{office.email}</p>
                       </div>
                       <div className="flex gap-3">
-                        <FaClock className="text-orange-400 text-lg flex-shrink-0" />
+                        <FaClock className="text-orange-400 text-lg shrink-0" />
                         <p className="text-gray-400">{office.hours}</p>
                       </div>
                     </div>
@@ -417,7 +417,7 @@ const Contact = () => {
                     placeholder="Enter your email"
                     className="flex-1 min-w-0 px-4 sm:px-6 py-3 rounded-full bg-black/30 border border-white/10 text-white text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50"
                   />
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 rounded-full font-bold text-sm sm:text-base transition shadow-lg shadow-orange-500/20 whitespace-nowrap flex-shrink-0">
+                  <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 rounded-full font-bold text-sm sm:text-base transition shadow-lg shadow-orange-500/20 whitespace-nowrap shrink-0">
                     Subscribe
                   </button>
                 </div>
