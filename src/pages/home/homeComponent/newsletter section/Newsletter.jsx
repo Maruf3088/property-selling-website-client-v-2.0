@@ -1,5 +1,5 @@
 import React from "react";
-import newsletterBg from "../../../../assets/newsletterbg.jpg";
+import newsletterBg from "../../../../assets/newsletterbgblack.png";
 
 const Newsletter = () => {
   return (
@@ -13,7 +13,6 @@ const Newsletter = () => {
     >
       <div className="container mx-auto">
         <div className="bg-white/5 border border-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl text-center flex flex-col gap-6 w-full md:w-3/5 lg:w-1/2 mx-auto py-16 px-8 relative overflow-hidden group">
-
           {/* Decor */}
           <div className="absolute top-0 right-0 w-40 h-40 bg-orange-500/10 rounded-full blur-[50px] pointer-events-none" />
 
@@ -23,9 +22,7 @@ const Newsletter = () => {
           </h1>
 
           {/* Title */}
-          <p className="text-4xl font-bold text-white">
-            Stay Up to Date
-          </p>
+          <p className="text-4xl font-bold text-white">Stay Up to Date</p>
 
           {/* Description */}
           <p className="text-gray-400 w-4/5 mx-auto leading-relaxed text-sm">
@@ -44,7 +41,7 @@ const Newsletter = () => {
                 bg-black/20
                 text-white
                 py-4 px-6
-                rounded-xl
+                rounded-4xl
                 text-center
                 border border-white/10
                 focus:outline-none
@@ -55,7 +52,7 @@ const Newsletter = () => {
               "
             />
 
-            <button className="bg-linear-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white px-8 py-4 rounded-xl text-sm font-bold shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all transform active:scale-95 self-center w-full sm:w-auto">
+            <button className="bg-linear-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white px-8 py-4 rounded-4xl text-sm font-bold shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all transform active:scale-95 self-center w-full sm:w-auto">
               Subscribe Now
             </button>
           </form>
